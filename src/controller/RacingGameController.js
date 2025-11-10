@@ -12,10 +12,15 @@ class RacingGameController {
 
   async run() {
     const carNames = await this.#inputCarNames();
+    const roundCount = await this.#inputRoundCount();
   }
 
   async #inputCarNames() {
     return this.#inputView.inputCarNames();
+  }
+
+  async #inputRoundCount() {
+    return this.#inputView.inputRoundCount();
   }
 }
 
