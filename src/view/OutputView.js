@@ -15,7 +15,7 @@ class OutputView {
     });
   }
 
-  static printError(message) {
+  printError(message) {
     Console.print(message);
   }
 }

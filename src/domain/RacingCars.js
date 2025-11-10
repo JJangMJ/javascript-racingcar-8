@@ -8,8 +8,7 @@ class RacingCars {
   #racingCars;
 
   constructor(carNames) {
-    const names = carNames.split(",").map((name) => name.trim());
-    this.#racingCars = names.map((name) => new RacingCar(name));
+    this.#racingCars = carNames.map((name) => new RacingCar(name));
   }
 
   playOneRound() {
