@@ -15,6 +15,11 @@ class OutputView {
     });
   }
 
+  printWinners(winners) {
+    const winnerResult = `${PROMPT_MESSAGES.FINAL_WINNERS_PREFIX} : ${winners.join(", ")}`;
+    Console.print(winnerResult);
+  }
+
   printError(message) {
     Console.print(message);
   }

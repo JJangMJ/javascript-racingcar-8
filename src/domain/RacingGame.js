@@ -14,7 +14,9 @@ class RacingGame {
       roundResults.push(roundResult);
     }
 
-    return roundResults;
+    const winners = this.#racingCars.getWinners();
+
+    return { roundResults, winners };
   }
 }
 

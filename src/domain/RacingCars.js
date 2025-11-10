@@ -13,11 +13,21 @@ class RacingCars {
 
   playOneRound() {
     return this.#racingCars.map((racingCar) => {
-        const randomValue = this.#generateRandomValue();
-        racingCar.move(randomValue);
-        const positionStatus = "-".repeat(racingCar.getPosition());
-        return `${racingCar.getName()}: ${positionStatus}`;
-    })
+      const randomValue = this.#generateRandomValue();
+      racingCar.move(randomValue);
+      const positionStatus = "-".repeat(racingCar.getPosition());
+      return `${racingCar.getName()}: ${positionStatus}`;
+    });
+  }
+
+  getWinners() {
+    const maxPosition = Math.max(
+      ...this.#racingCars.map((car) => car.getPosition())
+    );
+
+    return this.#racingCars
+      .filter((car) => car.getPosition() === maxPosition)
+      .map((car) => car.getName());
   }
 
   #generateRandomValue() {

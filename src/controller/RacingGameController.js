@@ -22,10 +22,11 @@ class RacingGameController {
       const roundCount = await this.#setRoundCount();
 
       let racingGame = new RacingGame(racingCars, roundCount);
-      const roundResult = racingGame.playRounds();
+      const { roundResults, winners } = racingGame.playRounds();
 
       this.#outputView.printResultHeader();
-      this.#outputView.printRoundResults(roundResult);
+      this.#outputView.printRoundResults(roundResults);
+      this.#outputView.printWinners(winners);
     } catch (error) {
       this.#outputView.printError(error.message);
     }
