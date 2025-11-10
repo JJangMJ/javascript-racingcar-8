@@ -14,7 +14,7 @@ class RacingGame {
       roundResults.push(roundResult);
     }
 
-    return { roundResults };
+    return roundResults;
   }
 }
 

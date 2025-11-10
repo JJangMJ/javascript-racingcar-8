@@ -18,7 +18,9 @@ class RacingGameController {
 
     let racingGame = new RacingGame(racingCars, roundCount);
     const roundResult = racingGame.playRounds();
-    this.#outputView.printRoundResult(roundResult);
+
+    this.#outputView.printResultHeader();
+    this.#outputView.printRoundResults(roundResult);
   }
 
   async #enrollRacingCars() {
