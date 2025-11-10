@@ -1,5 +1,6 @@
 import InputView from "../view/InputView.js";
 import OutputView from "../view/OutputView.js"
+import RacingGame from "../domain/RacingGame.js"
 
 class RacingGameController {
   #inputView;
@@ -11,16 +12,19 @@ class RacingGameController {
   }
 
   async run() {
-    const carNames = await this.#inputCarNames();
-    const roundCount = await this.#inputRoundCount();
+    const racingCars = await this.#enrollRacingCars();
+    const roundCount = await this.#setRoundCount();
+
+    let racingGame = new RacingGame();
   }
 
-  async #inputCarNames() {
-    return this.#inputView.inputCarNames();
+  async #enrollRacingCars() {
+    const carNames = await this.#inputView.inputCarNames();
+    return new RacingCars(carNames);
   }
 
-  async #inputRoundCount() {
-    return this.#inputView.inputRoundCount();
+  async #setRoundCount() {
+    return await this.#inputView.inputRoundCount();
   }
 }
 
